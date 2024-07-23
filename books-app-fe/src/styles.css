@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-div{
+/*div{
     background-color: blueviolet;
-}
+}*/
   
-body {
+/*body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -12,7 +12,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden; 
-  }
+  }*/
   
   body::before {
     content: '';

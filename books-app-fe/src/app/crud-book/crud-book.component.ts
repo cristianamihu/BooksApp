@@ -15,7 +15,7 @@ export class CrudBookComponent implements OnInit{
     description: '' 
   };
   //book = { id: null, name: '', author: '', description: '' };
-  isEditMode = false;
+  isEditMode = false; // is in add mode ("true" - edit mode)
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
