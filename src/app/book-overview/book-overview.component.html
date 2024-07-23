@@ -1,0 +1,9 @@
+<h2>Book Overview</h2>
+<ul>
+  <li *ngFor="let book of books">
+    {{ book.name }} by {{ book.author }}
+    <button (click)="viewBook(book.id)">View Details</button>
+    <button (click)="editBook(book.id)">Edit Book</button>
+  </li>
+</ul>
+<button (click)="navigateToAddBook()">Add Book</button>
