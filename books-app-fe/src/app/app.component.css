@@ -20,7 +20,7 @@ body {
   }
   
   .site-icon {
-    width: 32px; /* Favicon size is typically 16x16 or 32x32 */
+    width: 32px; 
     height: 32px;
     margin-right: 10px;
   }
