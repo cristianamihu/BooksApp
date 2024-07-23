@@ -1,57 +1,55 @@
-/* styles.css */
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
   
-  .site-header {
+.site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #6d6767;
     color: white;
   }
   
-  .logo-container {
+.logo-container {
     display: flex;
     align-items: center;
   }
   
-  .site-icon {
+.site-icon {
     width: 32px; 
     height: 32px;
     margin-right: 10px;
   }
   
-  .site-title {
+.site-title {
     font-size: 24px;
     font-weight: bold;
   }
   
-  .search-container {
+.search-container {
     display: flex;
     align-items: center;
   }
   
-  .search-input {
+.search-input {
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
   }
   
-  .search-button {
+.search-button {
     padding: 6px 12px;
     margin-left: 5px;
     border: none;
     border-radius: 3px;
-    background-color: #555;
+    background-color: #5f5858;
     color: white;
     cursor: pointer;
   }
   
-  .search-button:hover {
+.search-button:hover {
     background-color: #777;
   }
   
