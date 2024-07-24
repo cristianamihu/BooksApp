@@ -8,8 +8,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #6d6767;
-    color: white;
+    border-bottom: 1.5px solid #333;
+    /*background-color: #6d6767;*/
+    color: #333;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+    
   }
   
 .logo-container {
