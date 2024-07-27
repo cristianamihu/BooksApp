@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-reusable-something',
@@ -18,4 +19,13 @@ export class ReusableSomethingComponent {
     this.secondText = 'my angular app';
     console.log('ngOnInit');
   }*/
+
+  constructor(
+    private dialogRef: MatDialogRef<ReusableSomethingComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; author: string }
+  ) {}
+
+  confirm(answer: string) {
+    this.dialogRef.close(answer);
+  }
 }

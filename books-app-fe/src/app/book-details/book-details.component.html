@@ -1,4 +1,10 @@
-<h2>Book Details</h2>
+<h2 style="display: inline-block; margin-right: 16px;">Book Details</h2>
+<button 
+  mat-raised-button  
+  (click)="confirmDelete()" 
+  class="delete-button">
+  Delete
+</button>
 <div *ngIf="book">
   <p><strong>Name:</strong> {{ book.name }}</p>
   <p><strong>Author:</strong> {{ book.author }}</p>

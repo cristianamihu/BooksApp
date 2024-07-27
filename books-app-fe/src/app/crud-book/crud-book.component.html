@@ -1,5 +1,5 @@
 <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
-<form (ngSubmit)="submitForm()">
+<!--<form (ngSubmit)="submitForm()">
   <label for="name">Name:</label>
   <input type="text" id="name" [(ngModel)]="book.name" name="name" required>
 
@@ -10,4 +10,40 @@
   <textarea id="description" [(ngModel)]="book.description" name="description"></textarea>
 
   <button type="submit">{{ isEditMode ? 'Save Changes' : 'Add Book' }}</button>
+</form>-->
+
+<form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="form-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Book Name</mat-label>
+    <input matInput
+     formControlName="name"
+     type="text"
+     required />
+    <mat-error *ngIf="bookForm.get('name')?.hasError('required')">
+      Book name is required!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Author</mat-label>
+    <input matInput
+     formControlName="author"
+     type="text"
+     required />
+    <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
+      Author is required!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput 
+     formControlName="description" 
+     rows="5">
+    </textarea>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button [disabled]="bookForm.invalid">
+    {{ isEditMode ? 'Save Changes' : 'Add Book' }}
+  </button>
 </form>

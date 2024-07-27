@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
   }
   
 .site-header {
@@ -12,7 +12,6 @@ body {
     background-color: #8f8985;
     color: #333;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    
   }
   
 .logo-container {
@@ -27,11 +26,11 @@ body {
   }
   
 .site-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
   }
   
-.search-container {
+/*.search-container {
     display: flex;
     align-items: center;
   }
@@ -54,5 +53,5 @@ body {
   
 .search-button:hover {
     background-color: #777;
-  }
+  }*/
   
