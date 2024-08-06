@@ -60,6 +60,7 @@ export class CrudBookComponent implements OnInit{
       const bookId = +params['id'];
       if (bookId) {
         this.isEditMode = true;
+        this.bookId = bookId;
         // Simulate fetching book by ID
         //const book = { id: bookId, name: 'Edited Book', author: 'Edited Author', description: 'Edited Description' };
         //} else {
@@ -82,14 +83,13 @@ export class CrudBookComponent implements OnInit{
  }
 
  submitForm() {
-  const formValues = this.bookForm.getRawValue();
-  const bookData: Book = {
-    id: this.isEditMode ? this.bookId! : 0,
-    name: formValues.name || '',
-    author: formValues.author || '',
-    description: formValues.description || ''
-  };
+  const bookData = this.bookForm.getRawValue();
+  //console.log('Book Data:', bookData);
+  /*if (this.isEditMode) {
+    console.log('Book ID:', bookData.id);
+  }*/
 
+  bookData.id = this.bookId;
   if (this.isEditMode) {
     this.bookService.updateBook(bookData).subscribe(
       (updatedBook: Book) => {
