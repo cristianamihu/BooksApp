@@ -1,0 +1,66 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  height: 100%; 
+  background-color: #cdb9ac;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dialog-buttons {
+  margin-top: 25px; 
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-buttons button {
+  border-radius: 10px;
+  margin: 0 30px;
+  padding: 8px 16px;
+  background-color: #a38878; 
+  color: #000000;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-buttons button:hover {
+  background-color: #786e66;
+}
+
+.dialog-buttons button:active {
+  background-color: #6a5d54;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button[mat-raised-button][disabled] {
+  background-color: #c0c0c0; 
+  color: #666666; 
+}
+
+.mat-dialog-container {
+  border-radius: 8px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+  

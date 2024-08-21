@@ -1,13 +1,18 @@
-<h2 style="display: inline-block; margin-right: 16px;">Book Details</h2>
-<button 
-  mat-raised-button  
-  (click)="confirmDelete()" 
-  class="delete-button">
-  Delete
-</button>
-<div *ngIf="book">
-  <p><strong>Name:</strong> {{ book.name }}</p>
-  <p><strong>Author:</strong> {{ book.author }}</p>
-  <p><strong>Description:</strong> {{ book.description }}</p>
+<div class="book-details-container">
+  <div class="icon-container-back">
+    <button mat-icon-button (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="book-details-card">
+    <img [src]="randomImage" alt="Random Image" class="book-image">
+    <h2>{{ book?.name }}</h2>
+    <p><strong>Author:</strong> {{ book?.author }}</p>
+    <p><strong>Description:</strong> {{ book?.description }}</p>
+    <div class="icon-container">
+      <button mat-icon-button (click)="confirmDelete()" class="icon-button">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
-<button (click)="goBack()">Back to Overview</button>

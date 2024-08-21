@@ -1,14 +1,56 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
   
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 16px;
-  }
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
   
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
+
+button[mat-raised-button] {
+  border-radius: 8px;
+  background-color: #a38878;
+  color: #ffffff;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #786e66;
+}
+
+button[mat-raised-button]:active {
+  background-color: #6a5d54; 
+  transform: scale(0.98); 
+}
+
+button[mat-raised-button][disabled] {
+  background-color: #c0c0c0; 
+  color: #666666; 
+}
+
+.icon-container-back {
+  display: flex;
+  justify-content: flex-start; 
+  margin-bottom: 20px; 
+}
+
+.back-button {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.back-button mat-icon {
+  font-size: 24px;
+}

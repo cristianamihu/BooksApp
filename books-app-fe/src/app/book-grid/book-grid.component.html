@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <div class="icon-container">
+    <button mat-icon-button (click)="switchToTableView()">
+      <mat-icon>table_rows</mat-icon>
+    </button>
+    <button mat-icon-button (click)="navigateToAddBook()">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </div>
+
+  <div class="book-grid">
+    <div *ngFor="let book of books" class="book-card" (click)="goToBookDetails(book.id)">
+      <img [src]="book.image" alt="{{ book.name }}" class="book-image">
+      <h3>{{ book.name }}</h3>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <div class="book-description-container">
+        <strong>Description:</strong>
+        <p class="book-description">{{ getShortDescription(book.description) }}</p>
+      </div>
+      <button mat-icon-button class="edit-icon" (click)="editBook(book.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

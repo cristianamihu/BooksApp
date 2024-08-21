@@ -1,0 +1,74 @@
+.table-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ddc8b9;
+  box-shadow: 0px 0px 3px #000000;
+  position: relative;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.transparent-button {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.transparent-button mat-icon {
+  color: #000000; 
+}
+
+.header-container {
+  position: absolute;
+  top: 20px; 
+  left: 30px; 
+}
+
+.header-title {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-right: 1px solid #484747;
+}
+
+.custom-table tr {
+  border-bottom: 1px solid #484747;
+}
+
+.custom-table th {
+  border-bottom: 1px solid #484747;
+  font-weight: bold;
+}
+
+.custom-table td {
+  border-right: 1px solid #484747;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table td:last-child,
+.custom-table th:last-child {
+  border-right: none;
+}
+
+.custom-table tr:last-child {
+  border-bottom: none;
+}

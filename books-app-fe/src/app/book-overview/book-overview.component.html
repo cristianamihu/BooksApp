@@ -2,8 +2,6 @@
 <ul>
   <li *ngFor="let book of books" (click)="viewBook(book.id)" style="cursor: pointer;">
     {{ book.name }} by {{ book.author }}
-    <!--<button (click)="viewBook(book.id)">View Details</button>-->
-    <!--<button (click)="editBook(book.id)">Edit Book</button>-->
     <button mat-icon-button (click)="editBook(book.id); $event.stopPropagation()">
       <mat-icon>edit</mat-icon>
     </button>

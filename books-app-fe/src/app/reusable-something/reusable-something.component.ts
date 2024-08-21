@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -7,19 +7,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./reusable-something.component.css'],
 })
 export class ReusableSomethingComponent {
-  /*@Input() text: string;
-  secondText: string = '';
-
-  constructor() {
-    this.text = '';
-    console.log('constructor');
-  }
-
-  ngOnInit() {
-    this.secondText = 'my angular app';
-    console.log('ngOnInit');
-  }*/
-
   constructor(
     private dialogRef: MatDialogRef<ReusableSomethingComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { name: string; author: string }

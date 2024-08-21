@@ -1,6 +1,5 @@
 <div class="dialog-content">
-    <h3>{{ data.name }} by {{ data.author }}</h3>
-    <p>Are you sure you want to delete this book?</p>
+    <p>Are you sure you want to delete <b>{{ data.name }}</b> by <b>{{ data.author }}</b>?</p>
     <div class="dialog-buttons">
         <button mat-button (click)="confirm('yes')">Yes</button>
         <button mat-button (click)="confirm('no')">No</button>

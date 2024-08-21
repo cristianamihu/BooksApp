@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ReusableSomethingComponent } from '../reusable-something/reusable-something.component';
 import { Book } from '../core/models/book.model';
 import { BookService } from '../core/service/book.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book-details',
@@ -13,15 +13,24 @@ import { BookService } from '../core/service/book.service';
 })
 export class BookDetailsComponent implements OnInit{
   book: Book | null = null;
-  //book: any;
+  randomImage: string | null = null;
+  imagePaths: string[] = [
+    'assets/images/image1.jpg',
+    'assets/images/image2.jpg',
+    'assets/images/image3.jpg',
+  ];
 
-  constructor(private route: ActivatedRoute, private router: Router, private _dialogRef: MatDialog, private bookService: BookService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private _dialogRef: MatDialog, 
+    private bookService: BookService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       const bookId = +params['id'];
-      // Simulate fetching book by ID
-      //this.book = { id: bookId, name: 'Book ' + bookId, author: 'Author ' + bookId, description: 'Description ' + bookId };
       this.bookService.getBook(bookId).subscribe(
         (book: Book) => {
           this.book = book;
@@ -30,17 +39,22 @@ export class BookDetailsComponent implements OnInit{
           console.log('Error fetching book:', err);
         }
       );
+      this.randomImage = this.getRandomImage();
     });
   }
 
+  getRandomImage(): string {
+    const randomIndex = Math.floor(Math.random() * this.imagePaths.length);
+    return this.imagePaths[randomIndex];
+  }
+  
   goBack() {
-    this.router.navigate(['/overview']);
+    this.router.navigate(['/grid-view']);
   }
 
   confirmDelete() {
     const dialogRef = this._dialogRef.open(ReusableSomethingComponent, {
       data: { name: this.book?.name, author: this.book?.author },
-      //data: this.book,
       width: '400px',
       height: '200px', 
       autoFocus: false, 
@@ -62,7 +76,10 @@ export class BookDetailsComponent implements OnInit{
           if (index > -1) {
             books.splice(index, 1);
           }
-        this.router.navigate(['/overview']); // Navigate back to overview after deletion  
+          this.snackBar.open('Book deleted successfully!', 'Close', {
+            duration: 3000,
+          });
+          this.router.navigate(['/grid-view']); 
         });
       },
       (err) => {

@@ -1,27 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { NewComponentComponent } from './new-component/new-component.component';
+import { NewComponentComponent } from './new-component/new-component.component';
 import { ReusableSomethingComponent } from './reusable-something/reusable-something.component';
-import { BookOverviewComponent } from './book-overview/book-overview.component';
+//import { BookOverviewComponent } from './book-overview/book-overview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CrudBookComponent } from './crud-book/crud-book.component';
+import { BookGridComponent } from './book-grid/book-grid.component';
+import { BookTableComponent } from './book-table/book-table.component';
 
 const routes: Routes = [
-  /*{
-    path: '',
+  {
+    path: 'book-crud',
     component: NewComponentComponent,
-  },*/
+  },
   { path: '',
-    redirectTo: '/overview', 
+    redirectTo: '/grid-view', 
     pathMatch: 'full' 
   },
-  {
+  /*{
     path: 'overview',
     component: BookOverviewComponent,
-  },
+  },*/
   {
-    path: 'book/:id',
+    path: 'book-details/:id',
     component: BookDetailsComponent,
+  },
+  { 
+    path: 'grid-view', 
+    component: BookGridComponent 
+  },
+  { 
+    path: 'table-view', 
+    component: BookTableComponent 
   },
   {
     path: 'add-book',

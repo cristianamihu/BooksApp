@@ -1,12 +1,33 @@
-<!--<p>new-component works!</p>
-<button (click)="onClickButton()" type="button">Click me</button>
-<div *ngIf="showText">{{ text }}</div>
-<div *ngFor="let student of students">{{ student.name }}</div>
-<a routerLink="/page">Go To page</a>
+<div class="dialog-content">
+  <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
 
-<input type="text" [(ngModel)]="text" />
+  <form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Book Name</mat-label>
+      <input matInput formControlName="name" type="text" required />
+      <mat-error *ngIf="bookForm.get('name')?.hasError('required')">
+        Book name is required!
+      </mat-error>
+    </mat-form-field>
 
-<button (click)="submit()" type="submit">Submit</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" type="text" required />
+      <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
+        Author is required!
+      </mat-error>
+    </mat-form-field>
 
-<app-reusable-something [text]="text"></app-reusable-something>-->
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="5"></textarea>
+    </mat-form-field>
 
+    <div class="dialog-buttons">
+      <button type="submit" mat-raised-button color="primary" [disabled]="bookForm.invalid">
+        {{ isEditMode ? 'Save Changes' : 'Add Book' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
