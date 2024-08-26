@@ -1,5 +1,9 @@
 <div class="grid-container">
   <div class="icon-container">
+    <div class="search-container">
+      <input type="text" placeholder="Search..." class="search-input" [(ngModel)]="searchTerm"/>
+      <button class="search-button" (click)="searchBooks()">Search</button>
+    </div>
     <button mat-icon-button (click)="switchToTableView()">
       <mat-icon>table_rows</mat-icon>
     </button>
@@ -9,7 +13,7 @@
   </div>
 
   <div class="book-grid">
-    <div *ngFor="let book of books" class="book-card" (click)="goToBookDetails(book.id)">
+    <div *ngFor="let book of filteredBooks" class="book-card" (click)="goToBookDetails(book.id)">
       <img [src]="book.image" alt="{{ book.name }}" class="book-image">
       <h3>{{ book.name }}</h3>
       <p><strong>Author:</strong> {{ book.author }}</p>

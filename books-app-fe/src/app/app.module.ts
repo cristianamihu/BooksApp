@@ -19,7 +19,8 @@ import { HttpClientModule } from  '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BookTableComponent } from './book-table/book-table.component';
 import { BookGridComponent } from './book-grid/book-grid.component';
-import { MatTableModule } from '@angular/material/table'; 
+import { MatTableModule } from '@angular/material/table';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatTableModule } from '@angular/material/table';
     BookDetailsComponent,
     CrudBookComponent,
     BookTableComponent,
-    BookGridComponent
+    BookGridComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

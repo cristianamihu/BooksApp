@@ -7,6 +7,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { CrudBookComponent } from './crud-book/crud-book.component';
 import { BookGridComponent } from './book-grid/book-grid.component';
 import { BookTableComponent } from './book-table/book-table.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,11 @@ const routes: Routes = [
     component: NewComponentComponent,
   },
   { path: '',
-    redirectTo: '/grid-view', 
+    redirectTo: '/home', 
     pathMatch: 'full' 
+  },
+  { path: 'home',
+    component: HomeComponent,
   },
   /*{
     path: 'overview',
