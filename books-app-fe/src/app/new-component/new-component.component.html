@@ -1,8 +1,8 @@
 <div class="dialog-content">
   <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
 
-  <form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="form-container" style="background-color: #cdb9ac;">
-    <mat-form-field appearance="outline" class="field-background" style="background-color: #e8e2dc; border-radius: 8px; display: block; margin-bottom: 16px; " >
+  <form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="form-container">
+    <mat-form-field appearance="outline" class="field-background">
       <mat-label>Book Name</mat-label>
       <input matInput formControlName="name" type="text" required />
       <mat-error *ngIf="bookForm.get('name')?.hasError('required')">
@@ -10,7 +10,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="field-background" style="background-color: #e8e2dc; border-radius: 8px; display: block; margin-bottom: 16px; ">
+    <mat-form-field appearance="outline" class="field-background">
       <mat-label>Author</mat-label>
       <input matInput formControlName="author" type="text" required />
       <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
@@ -18,7 +18,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="field-background" style="background-color: #e8e2dc; border-radius: 8px; display: block; margin-bottom: 16px; ">
+    <mat-form-field appearance="outline" class="field-background">
       <mat-label>Description</mat-label>
       <textarea matInput formControlName="description" rows="5"></textarea>
     </mat-form-field>

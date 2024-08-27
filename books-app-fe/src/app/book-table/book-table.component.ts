@@ -98,7 +98,9 @@ export class BookTableComponent implements OnInit {
     this.bookService.deleteBook(bookId).subscribe(
       () => {
         this.snackBar.open('Book deleted successfully!', 'Close', {
-          duration: 3000
+          duration: 3000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
         });
         this.loadBooks();
       },

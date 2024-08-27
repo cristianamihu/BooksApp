@@ -57,6 +57,8 @@ export class NewComponentComponent implements OnInit{
         () => {
           this.snackBar.open('Book updated successfully!', 'Close', {
             duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: 'center',
           });
           this.dialogRef.close('updated');
         },
@@ -69,6 +71,8 @@ export class NewComponentComponent implements OnInit{
         () => {
           this.snackBar.open('Book added successfully!', 'Close', {
             duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: 'center',
           });
           this.dialogRef.close('added');
         },

@@ -60,7 +60,6 @@ export class BookDetailsComponent implements OnInit{
       autoFocus: false, 
       disableClose: true
     });
-
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'yes' && this.book) {
         this.deleteBook(this.book.id);
@@ -78,6 +77,8 @@ export class BookDetailsComponent implements OnInit{
           }
           this.snackBar.open('Book deleted successfully!', 'Close', {
             duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: 'center',
           });
           this.router.navigate(['/grid-view']); 
         });

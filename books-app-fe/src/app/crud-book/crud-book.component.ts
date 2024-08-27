@@ -46,51 +46,55 @@ export class CrudBookComponent implements OnInit{
         //} else {
         //  this.isEditMode = false;
         //}
-      this.bookService.getBook(bookId).subscribe(
-        (book: Book) => {
-          this.bookForm.setValue({
-            name: book.name,
-            author:book.author,
-            description: book.description,
-          })
+        this.bookService.getBook(bookId).subscribe(
+          (book: Book) => {
+            this.bookForm.setValue({
+              name: book.name,
+              author:book.author,
+              description: book.description,
+            })
+          },
+          (err) => {
+            console.log('Error fetching book for edit:', err);
+          }
+        );
+      }
+    });
+  }
+
+  submitForm() {
+    const bookData = this.bookForm.getRawValue();
+    //console.log('Book Data:', bookData);
+    /*if (this.isEditMode) {
+      console.log('Book ID:', bookData.id);
+    }*/
+    bookData.id = this.bookId;
+    if (this.isEditMode) {
+      this.bookService.updateBook(bookData).subscribe(
+        (updatedBook: Book) => {
+          this.books = this.books.map((book) => {
+            if (book.id === updatedBook.id) return updatedBook;
+            return book;
+          });
+          this.snackBar.open('Book updated successfully!', 'Close', {
+            duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: 'center',
+          });
+          this.router.navigate(['/grid-view']);
         },
-        (err) => {
-          console.log('Error fetching book for edit:', err);
+        (error) => {
+          console.error('Error updating book:', error);
         }
       );
-    }
-  });
- }
-
- submitForm() {
-  const bookData = this.bookForm.getRawValue();
-  //console.log('Book Data:', bookData);
-  /*if (this.isEditMode) {
-    console.log('Book ID:', bookData.id);
-  }*/
-  bookData.id = this.bookId;
-  if (this.isEditMode) {
-    this.bookService.updateBook(bookData).subscribe(
-      (updatedBook: Book) => {
-        this.books = this.books.map((book) => {
-          if (book.id === updatedBook.id) return updatedBook;
-          return book;
-        });
-        this.snackBar.open('Book updated successfully!', 'Close', {
-          duration: 3000,
-        });
-        this.router.navigate(['/grid-view']);
-      },
-      (error) => {
-        console.error('Error updating book:', error);
-      }
-    );
-  } else {
+    } else {
       this.bookService.addBook(bookData).subscribe(
         (newBook: Book) => {
           this.books.push(newBook);
           this.snackBar.open('Book added successfully!', 'Close', {
             duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: 'center',
           });
           this.router.navigate(['/grid-view']);
         },

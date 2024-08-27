@@ -28,3 +28,10 @@ body {
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
+mat-form-field .mat-mdc-text-field-wrapper {
+  background-color: #e8e2dc;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 16px;
+}

@@ -50,13 +50,11 @@ export class BookGridComponent implements OnInit {
 
   searchBooks() {
     const searchTermLower = this.searchTerm.toLowerCase();
-    const foundBook = this.books.find(book => 
-      book.name.toLowerCase() === searchTermLower
+    this.filteredBooks = this.books.filter(book =>
+      book.name.toLowerCase().includes(searchTermLower)
     );
-    if (foundBook) {
-      this.router.navigate(['/book-details', foundBook.id]);
-    } else {
-      this.snackBar.open('No book found with the given title', 'Close', {
+    if (this.filteredBooks.length === 0) {
+      this.snackBar.open('No books found with the given search term', 'Close', {
         duration: 3000,
         verticalPosition: 'top',
         horizontalPosition: 'center',
